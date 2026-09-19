@@ -28,6 +28,7 @@ in
     syntaxHighlighting.enable = true;  # commands turn green when valid
     initContent = ''
       bindkey '^f' autosuggest-accept
+      bindkey '^[[3~' delete-char  # forward delete (fn+Delete) removes the char under the cursor
 
       # Load secrets (KIRO_API_KEY etc.) from an untracked file so the values
       # never land in this public repo.
