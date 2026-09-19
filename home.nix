@@ -28,6 +28,19 @@ in
     syntaxHighlighting.enable = true;  # commands turn green when valid
     initContent = ''
       bindkey '^f' autosuggest-accept
+
+      # nvm (installed via Homebrew). Node runtimes live in ~/.nvm, which Nix
+      # does not manage. Pin the default to Node 24; install it once if missing.
+      export NVM_DIR="$HOME/.nvm"
+      mkdir -p "$NVM_DIR"
+      if [ -s /opt/homebrew/opt/nvm/nvm.sh ]; then
+        source /opt/homebrew/opt/nvm/nvm.sh
+        if ! nvm which 24 >/dev/null 2>&1; then
+          nvm install 24
+        fi
+        nvm alias default 24 >/dev/null 2>&1
+        nvm use default >/dev/null 2>&1
+      fi
     '';
     shellAliases = {
       ".." = "cd ..";

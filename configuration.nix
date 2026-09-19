@@ -25,6 +25,7 @@
     finder.CreateDesktop = false;          # clean desktop
     trackpad.Clicking = true;              # tap to click
   };
+  
   nix-homebrew = {
     enable = true;
     inherit user;
@@ -34,12 +35,22 @@
     onActivation.cleanup = "zap";  # remove anything not listed here
     onActivation.autoUpdate = true;
     onActivation.extraFlags = [ "--force" ];
-    brews = [
-      "herdr"
+    taps = [
+      {
+        name = "stablyai/orca";
+        clone_target = null; # uses the standard Homebrew github remote mapping
+        trusted = true;      # <-- This explicitly forces nix-darwin to trust the tap
+      }
     ];
+    
+    brews = [
+      "nvm"
+    ];
+
     casks = [
-      "wezterm"
-      "claude-code"
+      "kiro-cli"
+      "stablyai/orca/orca"
+      "google-chrome"
     ];
   };
 }
