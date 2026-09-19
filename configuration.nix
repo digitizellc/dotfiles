@@ -45,6 +45,7 @@
     
     brews = [
       "nvm"
+      "gh"
     ];
 
     casks = [
