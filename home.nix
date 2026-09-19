@@ -29,6 +29,10 @@ in
     initContent = ''
       bindkey '^f' autosuggest-accept
 
+      # Load secrets (KIRO_API_KEY etc.) from an untracked file so the values
+      # never land in this public repo.
+      [ -f "$HOME/.secrets.zsh" ] && source "$HOME/.secrets.zsh"
+
       # nvm (installed via Homebrew). Node runtimes live in ~/.nvm, which Nix
       # does not manage. Pin the default to Node 24; install it once if missing.
       export NVM_DIR="$HOME/.nvm"
