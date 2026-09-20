@@ -29,6 +29,7 @@
   nix-homebrew = {
     enable = true;
     inherit user;
+    autoMigrate = true;
   };
   homebrew = {
     enable = true;
@@ -52,6 +53,7 @@
       "kiro-cli"
       "stablyai/orca/orca"
       "google-chrome"
+      "citrix-workspace"
     ];
   };
 }
