@@ -19,11 +19,21 @@
       InitialKeyRepeat = 15;  # short delay before repeat
       _HIHideMenuBar = true;  # auto-hide the menu bar
       AppleShowAllExtensions = true;
+      NSAutomaticWindowAnimationsEnabled = false;  # no window open/close animations
+      NSWindowResizeTime = 0.001;                  # near-instant window resize
     };
     dock.autohide = true;
+    dock.orientation = "left";               # dock on the left edge
+    dock.launchanim = false;                 # no dock launch bounce animation
+    dock.autohide-delay = 0.0;               # no delay before dock shows
+    dock.autohide-time-modifier = 0.0;       # instant dock hide/show
+    dock.expose-animation-duration = 0.0;    # instant Mission Control
     finder.FXPreferredViewStyle = "Nlsv";  # list view by default
     finder.CreateDesktop = false;          # clean desktop
     trackpad.Clicking = true;              # tap to click
+    # No Spotlight-only animation toggle exists; Reduce Motion removes the
+    # Spotlight open/close animation (system-wide motion reduction).
+    universalaccess.reduceMotion = true;
   };
   
   nix-homebrew = {
