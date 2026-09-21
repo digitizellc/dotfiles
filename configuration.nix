@@ -52,18 +52,23 @@
         clone_target = null; # uses the standard Homebrew github remote mapping
         trusted = true;      # <-- This explicitly forces nix-darwin to trust the tap
       }
+      {
+        name = "openai/tools";
+        clone_target = null;
+        trusted = true;
+      }
     ];
-    
+
     brews = [
       "nvm"
       "gh"
+      "openai/tools/tart-guest-agent"
     ];
 
     casks = [
-      "kiro-cli"
       "stablyai/orca/orca"
       "google-chrome"
-      "citrix-workspace"
+      "git-credential-manager"
     ];
   };
 }
